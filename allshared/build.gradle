@@ -1,20 +1,18 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.multiplatform")
     id("co.touchlab.faktory.kmmbridge")
     id("co.touchlab.skie")
-    `maven-publish`
+    id 'maven-publish'
 }
 
 kotlin {
-    @Suppress("OPT_IN_USAGE")
     targetHierarchy.default()
 
-    listOf(
+    [
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
-    ).forEach {
+    ].forEach {
         it.binaries.framework {
             export(project(":analytics"))
             isStatic = true
@@ -22,13 +20,13 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
-                implementation(project(":breeds"))
-                api(project(":analytics"))
+                implementation project(":breeds")
+                api project(":analytics")
             }
         }
-        val commonTest by getting {
+        commonTest {
             dependencies {
                 implementation(libs.bundles.shared.commonTest)
             }
@@ -36,7 +34,7 @@ kotlin {
     }
 }
 
-addGithubPackagesRepository()
+//addGithubPackagesRepository()
 
 kmmbridge {
     mavenPublishArtifacts()
