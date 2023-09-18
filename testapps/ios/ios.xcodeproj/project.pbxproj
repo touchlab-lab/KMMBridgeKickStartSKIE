@@ -6,6 +6,20 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		63E8CBC72AB9028300F55340 /* kframework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 63E8CBC82AB9028300F55340 /* Build configuration list for PBXAggregateTarget "kframework" */;
+			buildPhases = (
+				63E8CBCB2AB9029400F55340 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = kframework;
+			productName = kframework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		63ACC6AB2AAE3D8D00965310 /* iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACC6AA2AAE3D8D00965310 /* iosApp.swift */; };
 		63ACC6AF2AAE3D8E00965310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63ACC6AE2AAE3D8E00965310 /* Assets.xcassets */; };
@@ -32,6 +46,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 63ACC6A62AAE3D8D00965310;
 			remoteInfo = ios;
+		};
+		63E8CBCC2AB902A400F55340 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63ACC69F2AAE3D8D00965310 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63E8CBC72AB9028300F55340;
+			remoteInfo = kframework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -150,6 +171,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				63E8CBCD2AB902A400F55340 /* PBXTargetDependency */,
 			);
 			name = ios;
 			packageProductDependencies = (
@@ -216,6 +238,9 @@
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = 63ACC6A62AAE3D8D00965310;
 					};
+					63E8CBC72AB9028300F55340 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 63ACC6A22AAE3D8D00965310 /* Build configuration list for PBXProject "ios" */;
@@ -237,6 +262,7 @@
 				63ACC6A62AAE3D8D00965310 /* ios */,
 				63ACC6B72AAE3D8E00965310 /* iosTests */,
 				63ACC6C12AAE3D8E00965310 /* iosUITests */,
+				63E8CBC72AB9028300F55340 /* kframework */,
 			);
 		};
 /* End PBXProject section */
@@ -266,6 +292,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63E8CBCB2AB9029400F55340 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "REPO_ROOT=\"$PROJECT_DIR/../..\"\n\"$REPO_ROOT/gradlew\" -p \"$REPO_ROOT\" spmDevBuild -PspmBuildTargets=ios_simulator_arm64\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		63ACC6A32AAE3D8D00965310 /* Sources */ = {
@@ -307,6 +353,11 @@
 			isa = PBXTargetDependency;
 			target = 63ACC6A62AAE3D8D00965310 /* ios */;
 			targetProxy = 63ACC6C32AAE3D8E00965310 /* PBXContainerItemProxy */;
+		};
+		63E8CBCD2AB902A400F55340 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63E8CBC72AB9028300F55340 /* kframework */;
+			targetProxy = 63E8CBCC2AB902A400F55340 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -588,6 +639,24 @@
 			};
 			name = Release;
 		};
+		63E8CBC92AB9028300F55340 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UD86646U9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		63E8CBCA2AB9028300F55340 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UD86646U9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -623,6 +692,15 @@
 			buildConfigurations = (
 				63ACC6D32AAE3D8E00965310 /* Debug */,
 				63ACC6D42AAE3D8E00965310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63E8CBC82AB9028300F55340 /* Build configuration list for PBXAggregateTarget "kframework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63E8CBC92AB9028300F55340 /* Debug */,
+				63E8CBCA2AB9028300F55340 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

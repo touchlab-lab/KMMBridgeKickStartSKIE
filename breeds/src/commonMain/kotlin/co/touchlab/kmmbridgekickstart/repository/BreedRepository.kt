@@ -38,7 +38,7 @@ class BreedRepository internal constructor(
         internal const val DB_TIMESTAMP_KEY = "DbTimestampKey"
     }
 
-    fun getBreeds(): Flow<List<Breed>> = dbHelper.selectAllItems()
+    fun getBreeds(): Flow<List<Breed>> = dbHelper.selectAllItems().map { it.map { it.copy(name = "4 $it.name") } }
 
     suspend fun refreshBreedsIfStale() {
         if (isBreedListStale()) {
